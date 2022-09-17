@@ -69,7 +69,7 @@ app.get('/games/:id/ads', async (request, response) => {
     }
   })
 
-  return response.json([
+  return response.json(
     ads.map(ad => {
       return {
         ...ad,
@@ -78,7 +78,7 @@ app.get('/games/:id/ads', async (request, response) => {
         hourEnd: convertMinutesToHourString(ad.hourEnd)
       }
     })
-  ])
+  )
 })
 
 app.get('/ads/:id/discord', async (request, response) => {
@@ -93,11 +93,9 @@ app.get('/ads/:id/discord', async (request, response) => {
     }
   })
 
-  return response.json([
-    {
-      discord: ad.discord
-    }
-  ])
+  return response.json({
+    discord: ad.discord
+  })
 })
 
 app.listen(3333)
